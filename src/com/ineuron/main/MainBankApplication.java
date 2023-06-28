@@ -34,7 +34,7 @@ public class MainBankApplication
 	                    	System.out.println("Deposit the amount"); 
 	                        break;  
 	                    case 4:  
-	                    	System.out.println("");
+	                    	System.out.println("Withdraw the amount");
 	                        break;  
 	                    case 5:  
 	                        System.out.println("Exit...");  
