@@ -1,49 +1,103 @@
 package com.ineuron.main;
 
+import java.util.Scanner;
 
 public class MainBankApplication 
 {
+
+	
 	public static void main(String[] agrs)
 	{
-		  System.out.print("How many number of customers do you want to input? "); 
-		  int n = sc.nextInt();  
-	        BankDetails C[] = new BankDetails[n];
-	        
-	        for(;;)
-	        {
-	        	System.out.println("this is for no of accounts");
-	        }
-	        int ch;
-	        do {  
-	            System.out.println("\n -----Banking  Application------");  
-	            System.out.println("1. Display all account details"
-	            		+ " \n 2. Search by Account number\n "
-	            		+ "3. Deposit the amount \n"
-	            		+ " 4. Withdraw the amount \n"
-	            		+ " 5.Exit ");  
-	            System.out.println("Enter your choice: ");  
-	             ch = sc.nextInt();  
-	                switch (ch) {  
-	                    case 1:  
-	                    	System.out.println("Display all account details");
-	                        break;  
-	                    case 2:  
-	                    	System.out.println("Search by Account number"); 
-	                        break;  
-	                    case 3:  
-	                    	System.out.println("Deposit the amount"); 
-	                        break;  
-	                    case 4:  
-	                    	System.out.println("Withdraw the amount");
-	                        break;  
-	                    case 5:  
-	                        System.out.println("Exit...");  
-	                        break;  
-	                }  
-	            }  
-	            while (ch != 5);  
-
-	        
+        Scanner sc = new Scanner(System.in);  
+        //create initial accounts  
+        System.out.print("How many number of customers do you want to input? ");  
+        int n = sc.nextInt();  
+        BankDetails C[] = new BankDetails[n];  
+        for (int i = 0; i < C.length; i++) 
+        {  
+            C[i] = new BankDetails();  
+            C[i].openAccount();  
+        }  
+       
+        MenuForBA m = new MenuForBA();
+        m.menu();
+	    
+	    
+	    if( m.ch == 1)
+	    {
+	    	for (int i = 0; i < C.length; i++) 
+            {  
+                C[i].showAccount();  
+            } 
+	    	m.menu();
+	    }
+	    else if (m.ch == 2)
+	    {
+	    	System.out.print("Enter account no. you want to search: ");  
+            String ac_no = sc.next();  
+            boolean found = false;  
+            for (int i = 0; i < C.length; i++) 
+            {  
+                found = C[i].search(ac_no);  
+                if (found) {  
+                    break;  
+                }  
+            }  
+            if (!found) 
+            {  
+                System.out.println("Search failed! Account doesn't exist..!!");  
+            }
+            
+            m.menu();
+            
+	    }
+	    else if (m.ch == 3)
+	    {
+	    	 System.out.print("Enter Account no. : ");  
+             String ac_no = sc.next();  
+             boolean found = false;  
+             for (int i = 0; i < C.length; i++) {  
+                 found = C[i].search(ac_no);  
+                 if (found) {  
+                     C[i].deposit();  
+                     break;  
+                 }  
+             }  
+             if (!found) {  
+                 System.out.println("Search failed! Account doesn't exist..!!");  
+             }  
+             
+             m.menu();
+	    }
+	    else if (m.ch == 4)
+	    {
+	    	System.out.print("Enter Account No : ");  
+           String ac_no = sc.next();  
+           boolean found = false;  
+            for (int i = 0; i < C.length; i++) {  
+                found = C[i].search(ac_no);  
+                if (found) {  
+                    C[i].withdrawal();  
+                    break;  
+                }  
+            }  
+            if (!found) {  
+                System.out.println("Search failed! Account doesn't exist..!!");  
+            } 
+            
+            m.menu();
+            
+	    }
+	    else if (m.ch == 5)
+	    {
+	    	System.out.println("See you soon...");  
+	    }
+	    else
+	    {
+	    	System.out.println(" enter a valid number between range 1 to 5 !! ");
+	    	m.menu();
+	    }
+	    
 	}
 	
 }
