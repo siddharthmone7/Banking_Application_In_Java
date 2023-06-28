@@ -15,7 +15,7 @@ public class MainBankApplication
 	        }
 	        int ch;
 	        do {  
-	            System.out.println("\n ***Banking System Application***");  
+	            System.out.println("\n -----Banking  Application------");  
 	            System.out.println("1. Display all account details"
 	            		+ " \n 2. Search by Account number\n "
 	            		+ "3. Deposit the amount \n"
