@@ -21,8 +21,10 @@ public class MainBankApplication
        
         MenuForBA m = new MenuForBA();
         m.menu();
-	    
-	    
+      
+        int ch=0;
+      while(true)
+        {
 	    if( m.ch == 1)
 	    {
 	    	for (int i = 0; i < C.length; i++) 
@@ -30,6 +32,7 @@ public class MainBankApplication
                 C[i].showAccount();  
             } 
 	    	m.menu();
+	    	
 	    }
 	    else if (m.ch == 2)
 	    {
@@ -40,7 +43,7 @@ public class MainBankApplication
             {  
                 found = C[i].search(ac_no);  
                 if (found) {  
-                    break;  
+                    break ;
                 }  
             }  
             if (!found) 
@@ -60,7 +63,7 @@ public class MainBankApplication
                  found = C[i].search(ac_no);  
                  if (found) {  
                      C[i].deposit();  
-                     break;  
+                     break ;  
                  }  
              }  
              if (!found) {  
@@ -78,26 +81,28 @@ public class MainBankApplication
                 found = C[i].search(ac_no);  
                 if (found) {  
                     C[i].withdrawal();  
-                    break;  
+                    break ;  
                 }  
             }  
             if (!found) {  
                 System.out.println("Search failed! Account doesn't exist..!!");  
             } 
             
-            m.menu();
+            m.menu();	
             
 	    }
 	    else if (m.ch == 5)
 	    {
-	    	System.out.println("See you soon...");  
+	    	  System.out.println("See you soon..."); 
+	    	  break;
+	    	
 	    }
 	    else
 	    {
 	    	System.out.println(" enter a valid number between range 1 to 5 !! ");
 	    	m.menu();
 	    }
-	    
+       }
 	}
 	
 }
