@@ -10,7 +10,7 @@ public class MainBankApplication
 	{
         Scanner sc = new Scanner(System.in);  
         //create initial accounts  
-        System.out.print("How many number of customers do you want to input? ");  
+        System.out.print("How many number of accounts do you want to Open? ");  
         int n = sc.nextInt();  
         BankDetails C[] = new BankDetails[n];  
         for (int i = 0; i < C.length; i++) 
@@ -35,7 +35,7 @@ public class MainBankApplication
 	    }
 	    else if (m.ch == 2)
 	    {
-	    	System.out.print("Enter account no. you want to search: ");  
+	    	System.out.print("Enter account Number,which you want to search: ");  
             String ac_no = sc.next();  
             boolean found = false;  
             for (int i = 0; i < C.length; i++) 
@@ -98,7 +98,7 @@ public class MainBankApplication
 	    }
 	    else
 	    {
-	    	System.out.println(" enter a valid number between range 1 to 5 !! ");
+	    	System.out.println(" Enter a valid number between range 1 to 5 !! ");
 	    	m.menu();
 	    }
        }
