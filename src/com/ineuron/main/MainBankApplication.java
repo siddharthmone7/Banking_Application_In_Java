@@ -22,7 +22,6 @@ public class MainBankApplication
         MenuForBA m = new MenuForBA();
         m.menu();
       
-        int ch=0;
       while(true)
         {
 	    if( m.ch == 1)
