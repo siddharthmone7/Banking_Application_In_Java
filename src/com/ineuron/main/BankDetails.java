@@ -1,4 +1,4 @@
-	package com.ineuron.main;
+package com.ineuron.main;
 
 import java.util.Scanner;
 
